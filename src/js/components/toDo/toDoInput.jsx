@@ -21,7 +21,7 @@ class ToDoInput extends Component {
         const id = `f${(~~(Math.random()*1e8)).toString(16)}`
         const value = this.state.input.trim();
         this.textInput.current.value = '';
-        this.props.addTask({ id, value, createdAt });
+        this.props.addTask({ id, value });
     }
 
     render() {
