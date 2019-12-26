@@ -25,7 +25,7 @@ class ToDoInput extends Component {
     render() {
         return (
             <div className="todo-input">
-                <form onSubmit={this.handleSubmit}>
+                <form className="todo-input__form" onSubmit={this.handleSubmit}>
                     <input
                      type="text"
                      className="todo-input__field"

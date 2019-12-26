@@ -7,15 +7,20 @@ class ToDoTask extends Component {
     }
 
     handleDelete() {
-        this.props.delTask(this.props.task[0]);
+        this.props.delTask(this.props.id);
     }
 
     render() {
         return (
             <li className="todo-task">
-                <input type="checkbox"/>
-                <span className="todo-task__value">{this.props.task[1]}</span>
-                <button onClick={this.handleDelete}>delete</button>
+                <input type="checkbox" id={this.props.id}/>
+                <label className="todo-task__checkbox" htmlFor={this.props.id}></label>
+                <div className="todo-task__value-container">
+                    <p className="todo-task__value">{this.props.value}</p>
+                </div>
+                <button className="todo-task__button" onClick={this.handleDelete}>
+                    <i className="fas fa-trash todo-task__button-icon"></i>
+                </button>
             </li>
         );
     }

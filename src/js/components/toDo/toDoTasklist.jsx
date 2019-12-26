@@ -9,7 +9,8 @@ class ToDoTasklist extends Component {
             tasks.push(
                 <ToDoTask
                  key={task[0]}
-                 task={task}
+                 id={task[0]}
+                 value={task[1]}
                  delTask={this.props.delTask}/>
             );
         };
