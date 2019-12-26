@@ -5,5 +5,5 @@ import App from './components/app.jsx';
 
 ReactDOM.render(
   <App />,
-  document.querySelector('.container')
+  document.querySelector('#root')
 );

@@ -30,8 +30,11 @@ class ToDo extends Component {
     render() {
         return (
             <div className="todo">
-                <ToDoInput addTask={this.addTask} />
-                <ToDoTasklist delTask={this.delTask} tasks={this.state.tasks}/>
+                <div className="container todo__container">
+                    <h1 className="todo__title">What to do. Organize your work</h1>
+                    <ToDoInput addTask={this.addTask} />
+                    <ToDoTasklist delTask={this.delTask} tasks={this.state.tasks}/>
+                </div>
             </div>
         );
     }
