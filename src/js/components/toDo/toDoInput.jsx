@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 
 class ToDoInput extends Component {
     constructor(props) {
@@ -19,9 +19,9 @@ class ToDoInput extends Component {
     handleSubmit(e) {
         e.preventDefault();
         const id = `f${(~~(Math.random()*1e8)).toString(16)}`
-        const content = this.state.input.trim();
+        const value = this.state.input.trim();
         this.textInput.current.value = '';
-        this.props.addTask({ id, content });
+        this.props.addTask({ id, value, createdAt });
     }
 
     render() {

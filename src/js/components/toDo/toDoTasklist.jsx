@@ -3,17 +3,16 @@ import ToDoTask from './toDoTask.jsx';
 
 class ToDoTasklist extends Component {
     render() {
-        const tasks = [];
-
-        for (let task of this.props.tasks) {
-            tasks.push(
+        const tasks = this.props.tasks.map(task => {
+            return (
                 <ToDoTask
-                 key={task[0]}
-                 id={task[0]}
-                 value={task[1]}
-                 delTask={this.props.delTask}/>
+                    key={task.id}
+                    id={task.id}
+                    value={task.value}
+                    delTask={this.props.delTask}
+                    changeTask={this.props.changeTask} />
             );
-        };
+        })
 
         return (
             <div className="todo-tasklist">
