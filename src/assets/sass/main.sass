@@ -8,3 +8,78 @@
 // Importing templates
 
 @import 'templates/base'
+
+.todo
+    @extend %flex
+    flex-direction: column
+    align-items: center
+    width: 80%
+    margin: 0 auto
+    padding-top: 150px
+
+    &-input
+        width: 80%
+        margin-bottom: 30px
+        &__form
+            @extend %flex
+        &__field
+            flex-grow: 1
+            padding: 10px 30px
+            border: 2px solid $lightColor--accent
+            border-radius: 5px 0 0 5px
+            font:
+                size: 1.8rem
+        &__button
+            padding: 5px 15px
+            color: $lightColor--main
+            text-transform: uppercase
+            font:
+                size: 2rem
+                weight: 900
+
+            background-color: $lightColor--accent
+            border-radius: 0 5px 5px 0
+
+    &-tasklist
+        & ul
+        width: 100%
+        @extend %flex
+        flex-direction: column
+    &-task
+        @extend %flex
+        align-items: center
+        padding: 10px 0
+
+        &__checkbox
+            flex-shrink: 0
+            position: relative
+            width: 30px
+            height: 30px
+            margin-right: 15px
+            border: 2px solid $lightColor--accent
+            border-radius: 3px
+            &::after
+                content: ''
+                display: block
+                width: 100%
+                height: 100%
+                position: absolute
+                transition: background-color .25s ease
+
+        & input[type="checkbox"]
+            display: none
+        & input:checked ~ &__checkbox::after
+            background-color: $lightColor--accent
+
+        &__value
+            font:
+                size: 2rem
+                weight: 400
+            &-container
+                flex-grow: 1
+        &__button
+            padding: 5px 10px
+            background-color: transparent
+            &-icon
+                color: $lightColor--2accent
+                font-size: 2.5rem
