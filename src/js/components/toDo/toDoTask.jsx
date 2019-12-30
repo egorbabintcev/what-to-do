@@ -9,6 +9,8 @@ class ToDoTask extends Component {
             input: this.props.value
         };
 
+        this.input = React.createRef();
+
         this.handleDelete = this.handleDelete.bind(this);
         this.handleCheck = this.handleCheck.bind(this);
         this.handleEdit = this.handleEdit.bind(this);
@@ -31,6 +33,7 @@ class ToDoTask extends Component {
         this.setState(state => {
             return { editing: !state.editing };
         });
+        this.input.current.focus();
     }
 
     handleChange(e) {
@@ -52,14 +55,9 @@ class ToDoTask extends Component {
 
     render() {
         const checked = this.state.checked ? 'todo-task__value_checked' : '';
-        let task;
+        const readOnly = { readOnly: this.state.editing ? '' : 'readOnly'};
         let buttonSet;
         if (this.state.editing) {
-            task = <input
-                className={`todo-task__value ${checked}`}
-                type="text"
-                value={this.state.input}
-                onChange={this.handleChange} />;
             buttonSet = (
                 <>
                     <button className="todo-task__button" onClick={this.handleChangesAccept}>
@@ -71,7 +69,6 @@ class ToDoTask extends Component {
                 </>
             );
         } else {
-            task = <p className={`todo-task__value ${checked}`}>{this.props.value}</p>;
             buttonSet = (
                 <>
                     <button className="todo-task__button" onClick={this.handleEdit}>
@@ -89,7 +86,13 @@ class ToDoTask extends Component {
                 <input type="checkbox" id={this.props.id} onChange={this.handleCheck}/>
                 <label className="todo-task__checkbox" htmlFor={this.props.id}></label>
                 <div className="todo-task__value-container">
-                    {task}
+                    <input
+                        ref={this.input}
+                        {...readOnly}
+                        className={`todo-task__value ${checked}`}
+                        type="text"
+                        value={this.state.input}
+                        onChange={this.handleChange}/>
                 </div>
                 {buttonSet}
             </li>

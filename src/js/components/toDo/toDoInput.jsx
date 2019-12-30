@@ -32,7 +32,7 @@ class ToDoInput extends Component {
                         ref={this.textInput}
                         type="text"
                         className="todo-input__field"
-                        placeholder="Type here your task here"
+                        placeholder="Type your task here"
                         onChange={this.handleChange}/>
                     <button type="submit" className="todo-input__button">add</button>
                 </form>
